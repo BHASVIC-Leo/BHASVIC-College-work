@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+int play(void);
+int feed(void);
+int status(void);
+
+char name[20];
+int hunger, energy, happiness;
+int main(void) {
+    char choice;
+    printf("Welcome to the pet adoption centre!\n");
+    do {
+    printf("What would you like to do here today?\nAdopt(a)\tFeed your pet(b)\tPlay with your pet(c)\t Check on your pet(d)");
+    scanf("%c", &choice);
+        switch (choice) {
+            case 'a':
+                printf("What do you wish to call your pet?");
+                fflush(stdin);
+                fgets(name, 20, stdin);
+                hunger = 0;
+                energy = 100;
+                happiness = 50;
+                break;
+            case 'b':
+                feed();
+                break;
+            case 'c':
+                play();
+                break;
+            case 'd':
+                status();
+                break;
+            default:
+                choice = 'z';
+        }
+    } while (choice != 'e');
+    return 0;
+}
+
+int feed() {
+    char choice2;
+    do{
+        printf("What would you like to feed your pet\nKibble(a)\tRed bull(b)\tSunday roast(c)");
+        fflush(stdin);
+        scanf("%d", &choice2);
+        switch (choice2) {
+            case 'a':
+                hunger = hunger - 50;
+                energy = energy + 50;
+                break;
+            case 'b':
+                hunger = hunger - 5;
+                energy = energy + 100;
+                break;
+            case 'c':
+                hunger = hunger - 100;
+                energy = energy - 15;
+                break;
+            default:
+                printf("Invalid choice\n");
+                choice2 = 'z';
+                break;
+        }
+    }while (choice2 != 'e');
+    return 0;
+}
+int play() {
+    char choice3;
+    do{
+        printf("What would you do with your pet\n(a)Swim\t(b)Pet\t(c)Fetch");
+        fflush(stdin);
+        scanf("%d", &choice3);
+        switch (choice3) {
+            case 'a':
+                happiness = happiness + 75;
+                energy = energy - 75;
+                break;
+            case 'b':
+                happiness = happiness + 25;
+                energy = energy + 10;
+                break;
+            case 'c':
+                happiness = happiness + 50;
+                energy = energy - 30;
+                break;
+            default:
+                printf("Invalid choice\n");
+                choice3 = 'z';
+                break;
+        }
+    }while (choice3 != 'e');
+    return 0;
+}
+int status(void) {
+    printf("\n\t%s\n------------------------\nHunger-%d\nEnergy-%d\nHappiness-%d\n\n",name,hunger,energy,happiness);
+    return 0;
+}

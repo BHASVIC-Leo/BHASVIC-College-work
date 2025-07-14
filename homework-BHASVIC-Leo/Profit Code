@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main(void) {
+    int income, expenses, profit, food, rent, leisure, memberships, input;
+    printf("Hello, welcome to the persona finance app\n");
+    printf("How much money do you wake a month:\n");
+    fflush(stdin);
+    scanf("%d", &income);
+    printf("Now you will enter your expenses(per month)\n\n");
+    printf("Rent -\n");
+    fflush(stdin);
+    scanf("%d", &rent);
+    printf("Food -\n");
+    fflush(stdin);
+    scanf("%d", &food);
+    printf("Memberships -\n");
+    fflush(stdin);
+    scanf("%d", &memberships);
+    printf("Leisure -\n");
+    fflush(stdin);
+    scanf("%d", &leisure);
+    expenses = rent + food + memberships + leisure;
+    printf("--Expenses--\n\n");
+    printf("Rent=%d\n", rent);
+    printf("Food=%d\n", food);
+    printf("Memberships=%d\n", memberships);
+    printf("Leisure=%d\n", leisure);
+    printf("Total = %d\n" , expenses);
+    printf("Would you like to see your profit per: 1)Day, 2)Week, 3)Month\n");
+    fflush(stdin);
+    scanf("%d", &input);
+    if (input == 1){
+        input = 28;
+    }
+    if (input == 2){
+        input = 4;
+    }
+    if (input == 3) {
+        input = 1;
+    }
+    printf("Your profit is %d", (income/input)-(expenses/input));
+    return 0;
+}
