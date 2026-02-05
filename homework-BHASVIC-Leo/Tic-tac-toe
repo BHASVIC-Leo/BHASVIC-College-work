@@ -53,34 +53,42 @@ int main(void) {
         if (count == 9) {
             done = true;
         }
+//top row
         if(grid[0][0] == '0' && grid[0][1] == '0' && grid[0][2] == '0') {
             printf("Player O won!");
             done = true;
         }
+//middle row
         if(grid[1][0] == '0' && grid[1][1] == '0' && grid[1][2] == '0') {
             printf("Player O won!");
             done = true;
         }
+//bottom row
         if(grid[2][0] == '0' && grid[2][1] == '0' && grid[2][2] == '0') {
             printf("Player O won!");
             done = true;
         }
+//topleft-bottomleft
         if(grid[0][0] == '0' && grid[1][0] == '0' && grid[2][0] == '0') {
             printf("Player O won!");
             done = true;
         }
+//topmiddle-bottommiddle
         if(grid[0][1] == '0' && grid[1][1] == '0' && grid[2][1] == '0') {
             printf("Player O won!");
             done = true;
         }
+//topright-bottomright
         if(grid[0][2] == '0' && grid[1][2] == '0' && grid[2][2] == '0') {
             printf("Player O won!");
             done = true;
         }
+//topleft-bottomright
         if(grid[0][0] == '0' && grid[1][1] == '0' && grid[2][2] == '0') {
             printf("Player O won!");
             done = true;
         }
+//topright-bottomleft
         if(grid[0][2] == '0' && grid[1][1] == '0' && grid[0][2] == '0') {
             printf("Player O won!");
             done = true;
@@ -121,3 +129,4 @@ int main(void) {
     } while (done == false);
     return 0;
 }
+
